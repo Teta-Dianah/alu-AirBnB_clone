@@ -4,7 +4,7 @@ import json
 
 
 class FileStorage:
-    """Serializes instances to a JSON file and deserializes JSON file to instances."""
+    """Serializes instances to a JSON file and deserializes back."""
 
     __file_path = "file.json"
     __objects = {}
@@ -27,7 +27,7 @@ class FileStorage:
             json.dump(serialized, f)
 
     def reload(self):
-        """Deserialize the JSON file __objects, if the JSON file exists."""
+        """Deserialize the JSON file to __objects, if the file exists."""
         from models.base_model import BaseModel
         from models.user import User
         from models.state import State
