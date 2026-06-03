@@ -8,7 +8,12 @@ class BaseModel:
     """Defines all common attributes/methods for other classes."""
 
     def __init__(self, *args, **kwargs):
-        """Initialize BaseModel instance."""
+        """Instantiate a new BaseModel.
+
+        Args:
+            args: unused positional arguments
+            kwargs: key/value pairs to set as attributes
+        """
         from models import storage
         if kwargs:
             for key, value in kwargs.items():
@@ -29,7 +34,7 @@ class BaseModel:
             type(self).__name__, self.id, self.__dict__)
 
     def save(self):
-        """Update updated_at with the current datetime and save to storage."""
+        """Update updated_at with current datetime and save to storage."""
         from models import storage
         self.updated_at = datetime.now()
         storage.save()
